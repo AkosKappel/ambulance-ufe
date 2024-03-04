@@ -20,6 +20,8 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface XkappelAmbulanceWlList {
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +30,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLXkappelAmbulanceWlListElement extends Components.XkappelAmbulanceWlList, HTMLStencilElement {
+    }
+    var HTMLXkappelAmbulanceWlListElement: {
+        prototype: HTMLXkappelAmbulanceWlListElement;
+        new (): HTMLXkappelAmbulanceWlListElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "xkappel-ambulance-wl-list": HTMLXkappelAmbulanceWlListElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +56,11 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface XkappelAmbulanceWlList {
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "xkappel-ambulance-wl-list": XkappelAmbulanceWlList;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +68,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "xkappel-ambulance-wl-list": LocalJSX.XkappelAmbulanceWlList & JSXBase.HTMLAttributes<HTMLXkappelAmbulanceWlListElement>;
         }
     }
 }
