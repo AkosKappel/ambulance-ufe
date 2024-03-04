@@ -20,8 +20,22 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface XkappelAmbulanceWlApp {
+        "basePath": string;
+    }
+    interface XkappelAmbulanceWlEditor {
+        "entryId": string;
+    }
     interface XkappelAmbulanceWlList {
     }
+}
+export interface XkappelAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXkappelAmbulanceWlEditorElement;
+}
+export interface XkappelAmbulanceWlListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXkappelAmbulanceWlListElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -30,7 +44,41 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLXkappelAmbulanceWlAppElement extends Components.XkappelAmbulanceWlApp, HTMLStencilElement {
+    }
+    var HTMLXkappelAmbulanceWlAppElement: {
+        prototype: HTMLXkappelAmbulanceWlAppElement;
+        new (): HTMLXkappelAmbulanceWlAppElement;
+    };
+    interface HTMLXkappelAmbulanceWlEditorElementEventMap {
+        "editor-closed": string;
+    }
+    interface HTMLXkappelAmbulanceWlEditorElement extends Components.XkappelAmbulanceWlEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXkappelAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLXkappelAmbulanceWlEditorElement, ev: XkappelAmbulanceWlEditorCustomEvent<HTMLXkappelAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXkappelAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLXkappelAmbulanceWlEditorElement, ev: XkappelAmbulanceWlEditorCustomEvent<HTMLXkappelAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLXkappelAmbulanceWlEditorElement: {
+        prototype: HTMLXkappelAmbulanceWlEditorElement;
+        new (): HTMLXkappelAmbulanceWlEditorElement;
+    };
+    interface HTMLXkappelAmbulanceWlListElementEventMap {
+        "entry-clicked": string;
+    }
     interface HTMLXkappelAmbulanceWlListElement extends Components.XkappelAmbulanceWlList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXkappelAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLXkappelAmbulanceWlListElement, ev: XkappelAmbulanceWlListCustomEvent<HTMLXkappelAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXkappelAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLXkappelAmbulanceWlListElement, ev: XkappelAmbulanceWlListCustomEvent<HTMLXkappelAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLXkappelAmbulanceWlListElement: {
         prototype: HTMLXkappelAmbulanceWlListElement;
@@ -38,6 +86,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "xkappel-ambulance-wl-app": HTMLXkappelAmbulanceWlAppElement;
+        "xkappel-ambulance-wl-editor": HTMLXkappelAmbulanceWlEditorElement;
         "xkappel-ambulance-wl-list": HTMLXkappelAmbulanceWlListElement;
     }
 }
@@ -56,10 +106,20 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface XkappelAmbulanceWlApp {
+        "basePath"?: string;
+    }
+    interface XkappelAmbulanceWlEditor {
+        "entryId"?: string;
+        "onEditor-closed"?: (event: XkappelAmbulanceWlEditorCustomEvent<string>) => void;
+    }
     interface XkappelAmbulanceWlList {
+        "onEntry-clicked"?: (event: XkappelAmbulanceWlListCustomEvent<string>) => void;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "xkappel-ambulance-wl-app": XkappelAmbulanceWlApp;
+        "xkappel-ambulance-wl-editor": XkappelAmbulanceWlEditor;
         "xkappel-ambulance-wl-list": XkappelAmbulanceWlList;
     }
 }
@@ -68,6 +128,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "xkappel-ambulance-wl-app": LocalJSX.XkappelAmbulanceWlApp & JSXBase.HTMLAttributes<HTMLXkappelAmbulanceWlAppElement>;
+            "xkappel-ambulance-wl-editor": LocalJSX.XkappelAmbulanceWlEditor & JSXBase.HTMLAttributes<HTMLXkappelAmbulanceWlEditorElement>;
             "xkappel-ambulance-wl-list": LocalJSX.XkappelAmbulanceWlList & JSXBase.HTMLAttributes<HTMLXkappelAmbulanceWlListElement>;
         }
     }
