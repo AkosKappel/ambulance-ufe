@@ -26,6 +26,8 @@ export namespace Components {
         "basePath": string;
     }
     interface XkappelAmbulanceWlEditor {
+        "ambulanceId": string;
+        "apiBase": string;
         "entryId": string;
     }
     interface XkappelAmbulanceWlList {
@@ -116,6 +118,8 @@ declare namespace LocalJSX {
         "basePath"?: string;
     }
     interface XkappelAmbulanceWlEditor {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "entryId"?: string;
         "onEditor-closed"?: (event: XkappelAmbulanceWlEditorCustomEvent<string>) => void;
     }

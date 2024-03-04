@@ -57,7 +57,12 @@ export class XkappelAmbulanceWlApp {
     return (
       <Host>
         {element === 'editor' ? (
-          <xkappel-ambulance-wl-editor entry-id={entryId} oneditor-closed={() => navigate('./list')}></xkappel-ambulance-wl-editor>
+          <xkappel-ambulance-wl-editor
+            entry-id={entryId}
+            ambulance-id={this.ambulanceId}
+            api-base={this.apiBase}
+            oneditor-closed={() => navigate('./list')}
+          ></xkappel-ambulance-wl-editor>
         ) : (
           <xkappel-ambulance-wl-list
             ambulance-id={this.ambulanceId}
