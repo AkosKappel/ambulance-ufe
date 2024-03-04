@@ -21,12 +21,16 @@ export namespace Components {
         "middle": string;
     }
     interface XkappelAmbulanceWlApp {
+        "ambulanceId": string;
+        "apiBase": string;
         "basePath": string;
     }
     interface XkappelAmbulanceWlEditor {
         "entryId": string;
     }
     interface XkappelAmbulanceWlList {
+        "ambulanceId": string;
+        "apiBase": string;
     }
 }
 export interface XkappelAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
@@ -107,6 +111,8 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface XkappelAmbulanceWlApp {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "basePath"?: string;
     }
     interface XkappelAmbulanceWlEditor {
@@ -114,6 +120,8 @@ declare namespace LocalJSX {
         "onEditor-closed"?: (event: XkappelAmbulanceWlEditorCustomEvent<string>) => void;
     }
     interface XkappelAmbulanceWlList {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "onEntry-clicked"?: (event: XkappelAmbulanceWlListCustomEvent<string>) => void;
     }
     interface IntrinsicElements {

@@ -15,6 +15,8 @@ export class XkappelAmbulanceWlApp {
   @State() private relativePath = '';
 
   @Prop() basePath: string = '';
+  @Prop() apiBase: string;
+  @Prop() ambulanceId: string;
 
   componentWillLoad() {
     const baseUri = new URL(this.basePath, document.baseURI || '/').pathname;
@@ -57,7 +59,11 @@ export class XkappelAmbulanceWlApp {
         {element === 'editor' ? (
           <xkappel-ambulance-wl-editor entry-id={entryId} oneditor-closed={() => navigate('./list')}></xkappel-ambulance-wl-editor>
         ) : (
-          <xkappel-ambulance-wl-list onentry-clicked={(ev: CustomEvent<string>) => navigate('./entry/' + ev.detail)}></xkappel-ambulance-wl-list>
+          <xkappel-ambulance-wl-list
+            ambulance-id={this.ambulanceId}
+            api-base={this.apiBase}
+            onentry-clicked={(ev: CustomEvent<string>) => navigate('./entry/' + ev.detail)}
+          ></xkappel-ambulance-wl-list>
         )}
       </Host>
     );
