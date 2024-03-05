@@ -41,6 +41,8 @@ export class XkappelAmbulanceWlApp {
   }
 
   render() {
+    console.debug('xkappel-ambulance-wl-app.render() - path: %s', this.relativePath);
+
     let element = 'list';
     let entryId = '@new';
 
